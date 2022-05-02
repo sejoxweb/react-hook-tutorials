@@ -5,8 +5,9 @@ import CarClass from "./components/CarClass";
 import Car from "./components/Car";
 import Bikes from "./components/Bikes";
 import Example from "./components/Example";
-import CounterHookTime from "./components/CounterHookTime";
+import CounterClassTime from "./components/CounterClassTime";
 import Todo from "./components/Todo";
+import ExampleHook from "./components/ExampleHook";
 
 class App extends Component {
   constructor(props) {
@@ -19,14 +20,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Todo />
+        {/* <Todo /> */}
         {/* <CounterHook /> */}
         {/* <CarClass /> */}
         {/* <Car /> */}
         {/* <Bikes /> */}
         {/* <Example /> */}
-        {/* {this.state.isShow && <CounterHookTime />}
-        <button
+        <ExampleHook />
+        {/* {/* {this.state.isShow && <CounterClassTime />} */}
+        {/* <button
           onClick={() => {
             this.setState({
               isShow: !this.state.isShow,

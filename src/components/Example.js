@@ -5,6 +5,7 @@ class Example extends React.Component {
     super(props);
     this.state = {
       count: 0,
+      name: "",
     };
   }
 
@@ -15,13 +16,24 @@ class Example extends React.Component {
   componentDidMount() {
     this.setDocumentTitle();
   }
-  componentDidUpdate() {
-    this.setDocumentTitle();
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.count !== this.state.count) {
+      console.log("document title update");
+      this.setDocumentTitle();
+    }
   }
 
   render() {
     return (
       <div>
+        <input
+          type="text"
+          onChange={(e) =>
+            this.setState({
+              name: e.target.value,
+            })
+          }
+        />
         <p>You clicked {this.state.count} times</p>
         <button onClick={() => this.setState({ count: this.state.count + 1 })}>
           Click me

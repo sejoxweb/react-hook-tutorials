@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class CounterHookTime extends Component {
+class CounterClassTime extends Component {
   constructor(props) {
     super(props);
 
@@ -10,24 +10,20 @@ class CounterHookTime extends Component {
   }
 
   componentDidMount = () => {
-    this.timer();
-  };
-
-  componentWillUnmount = () => {
-    clearTimeout(this.timer);
-  };
-
-  timer = () => {
-    setTimeout(() => {
+    this.timer = setTimeout(() => {
       this.setState({
         count: this.state.count + 1,
       });
     }, 3000);
   };
 
+  componentWillUnmount = () => {
+    clearTimeout(this.timer);
+  };
+
   render() {
-    return <div>CounterHookTime {this.state.count}</div>;
+    return <div>CounterClassTime {this.state.count}</div>;
   }
 }
 
-export default CounterHookTime;
+export default CounterClassTime;
