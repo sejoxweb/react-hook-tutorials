@@ -8,6 +8,8 @@ import Example from "./components/Example";
 import CounterClassTime from "./components/CounterClassTime";
 import Todo from "./components/Todo";
 import ExampleHook from "./components/ExampleHook";
+import ClassMove from "./components/ClassMove";
+import HookMove from "./components/HookMove";
 
 class App extends Component {
   constructor(props) {
@@ -26,9 +28,11 @@ class App extends Component {
         {/* <Car /> */}
         {/* <Bikes /> */}
         {/* <Example /> */}
-        <ExampleHook />
-        {/* {/* {this.state.isShow && <CounterClassTime />} */}
-        {/* <button
+        {/* <ExampleHook /> */}
+        {this.state.isShow && <HookMove />}
+        {/* <ClassMove /> */}
+        {/* <CounterClassTime /> */}
+        <button
           onClick={() => {
             this.setState({
               isShow: !this.state.isShow,
@@ -36,7 +40,7 @@ class App extends Component {
           }}
         >
           show or Hid
-        </button> */}
+        </button>
       </div>
     );
   }
