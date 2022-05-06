@@ -10,6 +10,8 @@ import Todo from "./components/Todo";
 import ExampleHook from "./components/ExampleHook";
 import ClassMove from "./components/ClassMove";
 import HookMove from "./components/HookMove";
+import ClassInterval from "./components/ClassInterval";
+import HookInterval from "./components/HookInterval";
 
 class App extends Component {
   constructor(props) {
@@ -22,6 +24,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        {/* <ClassInterval /> */}
+        <HookInterval />
         {/* <Todo /> */}
         {/* <CounterHook /> */}
         {/* <CarClass /> */}
@@ -29,10 +33,10 @@ class App extends Component {
         {/* <Bikes /> */}
         {/* <Example /> */}
         {/* <ExampleHook /> */}
-        {this.state.isShow && <HookMove />}
+        {/* {this.state.isShow && <HookMove />} */}
         {/* <ClassMove /> */}
         {/* <CounterClassTime /> */}
-        <button
+        {/* <button
           onClick={() => {
             this.setState({
               isShow: !this.state.isShow,
@@ -40,7 +44,7 @@ class App extends Component {
           }}
         >
           show or Hid
-        </button>
+        </button> */}
       </div>
     );
   }
