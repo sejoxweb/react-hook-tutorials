@@ -11,7 +11,9 @@ import ExampleHook from "./components/ExampleHook";
 import ClassMove from "./components/ClassMove";
 import HookMove from "./components/HookMove";
 import ClassInterval from "./components/ClassInterval";
-import HookInterval from "./components/HookInterval";
+// import HookInterval from "./components/HookInterval";
+import ClassHttp from "./components/ClassHttp";
+import HookHttp from "./components/HookHttp";
 
 class App extends Component {
   constructor(props) {
@@ -24,8 +26,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* <ClassInterval /> */}
-        <HookInterval />
+        <HookHttp />
+        {/* <ClassHttp /> */}
+        {/* <ClassInterval />
+        <HookInterval /> */}
         {/* <Todo /> */}
         {/* <CounterHook /> */}
         {/* <CarClass /> */}

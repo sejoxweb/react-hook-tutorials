@@ -5,15 +5,19 @@ class ClassInterval extends Component {
     count: 0,
   };
 
-  interval = () => {
+  cb = () => {
     this.setState({
       count: this.state.count + 1,
     });
   };
 
-  componentDidMount = () => {
-    setInterval(this.interval, 500);
-  };
+  componentDidMount() {
+    this.interval = setInterval(this.cb, 500);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
 
   render() {
     return <div>ClassInterval {this.state.count}</div>;

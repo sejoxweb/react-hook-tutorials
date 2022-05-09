@@ -3,16 +3,23 @@ import React, { useEffect, useState } from "react";
 function HookInterval() {
   const [count, setCount] = useState(0);
 
-  const interval = () => setCount(count + 1);
-  const timer = setInterval(interval, 500);
-  useEffect(() => {
-    console.log("running interval");
+  const cb = () => {
+    console.log("cb running...");
+    console.log(count);
+    setCount((prevCount) => prevCount + 1);
+  };
+  function example() {
+    console.log(exampleprop);
+  }
 
+  useEffect(() => {
+    example();
+    console.log("creating interval");
+    const interval = setInterval(cb, 500);
     return () => {
-      console.log("hi");
-      clearInterval(timer);
+      clearInterval(interval);
     };
-  });
+  }, []);
 
   return <div>HookInterval {count}</div>;
 }
