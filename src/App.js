@@ -1,57 +1,22 @@
 import "./App.css";
-import React, { Component } from "react";
-import CounterHook from "./components/CounterHook";
-import CarClass from "./components/CarClass";
-import Car from "./components/Car";
-import Bikes from "./components/Bikes";
-import Example from "./components/Example";
-import CounterClassTime from "./components/CounterClassTime";
-import Todo from "./components/Todo";
-import ExampleHook from "./components/ExampleHook";
-import ClassMove from "./components/ClassMove";
-import HookMove from "./components/HookMove";
-import ClassInterval from "./components/ClassInterval";
-// import HookInterval from "./components/HookInterval";
-import ClassHttp from "./components/ClassHttp";
-import HookHttp from "./components/HookHttp";
+import React, { createContext, useState } from "react";
+import CompC from "./components/CompC";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
+export const UserContext = createContext();
+export const ThemeContext = createContext();
 
-    this.state = {
-      isShow: true,
-    };
-  }
-  render() {
-    return (
-      <div className="App">
-        <HookHttp />
-        {/* <ClassHttp /> */}
-        {/* <ClassInterval />
-        <HookInterval /> */}
-        {/* <Todo /> */}
-        {/* <CounterHook /> */}
-        {/* <CarClass /> */}
-        {/* <Car /> */}
-        {/* <Bikes /> */}
-        {/* <Example /> */}
-        {/* <ExampleHook /> */}
-        {/* {this.state.isShow && <HookMove />} */}
-        {/* <ClassMove /> */}
-        {/* <CounterClassTime /> */}
-        {/* <button
-          onClick={() => {
-            this.setState({
-              isShow: !this.state.isShow,
-            });
-          }}
-        >
-          show or Hid
-        </button> */}
-      </div>
-    );
-  }
+function App() {
+  const [user, setUser] = useState("sejox");
+  const [theme, setTheme] = useState("blue");
+  return (
+    <UserContext.Provider value={user}>
+      <ThemeContext.Provider value={theme}>
+        <div className="App">
+          <CompC />
+        </div>
+      </ThemeContext.Provider>
+    </UserContext.Provider>
+  );
 }
 
 export default App;
