@@ -1,25 +1,59 @@
-const initialState = { count: 0 };
+import React, { useState, useReducer } from "react";
+
+const initialState = {
+  count: 0,
+};
 
 function reducer(state, action) {
   switch (action.type) {
+    case "reset":
+      return initialState;
     case "increment":
-      return { count: state.count + 1 };
+      return { count: state.count + action.payload };
     case "decrement":
-      return { count: state.count - 1 };
+      return { count: state.count - action.payload };
+
     default:
-      throw new Error();
+      return state;
   }
 }
-
-function Counter() {
+function CounterReducer() {
+  //const [count, setCount] = useState(0); //primitive data types
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
-    <>
-      Count: {state.count}
-      <button onClick={() => dispatch({ type: "decrement" })}>-</button>
-      <button onClick={() => dispatch({ type: "increment" })}>+</button>
-    </>
+    <div>
+      counter {state.count}{" "}
+      <button
+        onClick={() =>
+          dispatch({
+            type: "reset",
+          })
+        }
+      >
+        reset
+      </button>
+      <button
+        onClick={() =>
+          dispatch({
+            type: "increment",
+            payload: 5,
+          })
+        }
+      >
+        increment
+      </button>
+      <button
+        onClick={() =>
+          dispatch({
+            type: "decrement",
+            payload: 5,
+          })
+        }
+      >
+        decrement
+      </button>
+    </div>
   );
 }
 
-export default Counter;
+export default CounterReducer;
