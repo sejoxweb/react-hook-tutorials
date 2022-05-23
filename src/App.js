@@ -1,6 +1,13 @@
 import "./App.css";
 import React, { createContext, useReducer, useState } from "react";
 import TodosContainer from "./components/TodosContainer";
+import UseMemoExample from "./components/UseMemoExample";
+import UseRefExample from "./components/UseRefExample";
+import UseRefExampleTwo from "./components/UseRefExampleTwo";
+import TodoOne from "./components/TodoOne";
+import Users from "./components/Users";
+import CounterOne from "./components/CounterOne";
+import CounterTwo from "./components/CounterTwo";
 // import CounterHook from "./components/CounterHook";
 // import CounterReducer from "./components/CounterReducer";
 // import CounterContextReducer from "./components/CounterContextReducer";
@@ -37,7 +44,14 @@ function App() {
     //   </div>
     // </CounterContext.Provider>
     <div className="App">
-      <TodosContainer />
+      {/* <CounterOne />
+      <CounterTwo /> */}
+      {/* <TodosContainer /> */}
+      {/* <UseMemoExample /> */}
+      {/* <UseRefExample /> */}
+      {/* <UseRefExampleTwo /> */}
+      {/* <Users /> */}
+      <TodoOne />
     </div>
   );
 }
