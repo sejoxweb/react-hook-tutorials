@@ -1,12 +1,19 @@
 import { useState, useEffect, useRef } from "react";
 
 function UseRefExampleTwo() {
-  const [inputValue, setInputValue] = useState("");
-  let count = useRef(0);
+  const [inputValue, setInputValue] = useState("j");
+  let count = useRef("j");
 
   useEffect(() => {
-    count.current = count.current + 1;
+    console.log("after every render running useEffect");
+    count.current = inputValue;
+    console.log("count.current ", count.current);
+    console.log("inputValue", inputValue);
   });
+
+  console.log("render");
+  console.log("count.current ", count.current);
+  console.log("inputValue", inputValue);
 
   return (
     <>
@@ -15,7 +22,8 @@ function UseRefExampleTwo() {
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
       />
-      <h1>Render Count: {count.current}</h1>
+      <h1>preveious State: {count.current}</h1>
+      <h1>current State: {inputValue}</h1>
     </>
   );
 }

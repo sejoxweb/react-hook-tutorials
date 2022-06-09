@@ -1,58 +1,53 @@
 import "./App.css";
-import React, { createContext, useReducer, useState } from "react";
-import TodosContainer from "./components/TodosContainer";
-import UseMemoExample from "./components/UseMemoExample";
-import UseRefExample from "./components/UseRefExample";
+import React, { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./pages/Layout";
+import Home from "./pages/Home";
+import Blogs from "./pages/Blogs";
+import Contact from "./pages/Contact";
+import NoPage from "./pages/NoPage";
 import UseRefExampleTwo from "./components/UseRefExampleTwo";
-import TodoOne from "./components/TodoOne";
-import Users from "./components/Users";
-import CounterOne from "./components/CounterOne";
-import CounterTwo from "./components/CounterTwo";
-// import CounterHook from "./components/CounterHook";
-// import CounterReducer from "./components/CounterReducer";
-// import CounterContextReducer from "./components/CounterContextReducer";
-// import ViewCount from "./components/ViewCount";
-
-// export const CounterContext = createContext();
-// console.log(CounterContext);
-// const initialState = {
-//   count: 0,
-// };
-
-// function reducer(state, action) {
-//   switch (action.type) {
-//     case "reset":
-//       return initialState;
-//     case "increment":
-//       return { count: state.count + action.payload };
-//     case "decrement":
-//       return { count: state.count - action.payload };
-
-//     default:
-//       return state;
-//   }
-// }
+import Todo from "./Todo/Todo";
 
 function App() {
-  //const [state, dispatch] = useReducer(reducer, initialState);
+  // const [user, setUser] = useState({
+  //   name: "jafar",
+  //   age: 34,
+  // });
+
+  // const handleRemove = () => {
+  //   const newUser2 = { ...user };
+  //   delete newUser2.age;
+  //   setUser(newUser2);
+  // };
+
+  // const handleAdd = () => {
+  //   setUser({ ...user, color: "red" });
+  // };
+
   return (
-    // <CounterContext.Provider value={{ count: state.count, dispatch }}>
-    //   <div className="App">
-    //     {/* <CounterHook /> */}
-    //     <CounterContextReducer />
-    //     <ViewCount />
-    //   </div>
-    // </CounterContext.Provider>
-    <div className="App">
-      {/* <CounterOne />
-      <CounterTwo /> */}
-      {/* <TodosContainer /> */}
-      {/* <UseMemoExample /> */}
-      {/* <UseRefExample /> */}
+    <>
+      <Todo />
       {/* <UseRefExampleTwo /> */}
-      {/* <Users /> */}
-      <TodoOne />
-    </div>
+      {/* <div>hi</div>
+      <button onClick={handleRemove}>remove</button>
+      <button onClick={handleAdd}>add</button>
+      <ul>
+        {Object.values(user).map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul> */}
+    </>
+    // <BrowserRouter>
+    //   <Routes>
+    //     <Route path="/" element={<Layout />}>
+    //       <Route index element={<Home />} />
+    //       <Route path="/blogs" element={<Blogs />} />
+    //       <Route path="/contact" element={<Contact />} />
+    //       <Route path="*" element={<NoPage />} />
+    //     </Route>
+    //   </Routes>
+    // </BrowserRouter>
   );
 }
 
