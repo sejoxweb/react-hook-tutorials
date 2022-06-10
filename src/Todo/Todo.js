@@ -1,49 +1,45 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
 
-function Todo() {
+function Todo(props) {
+  const { list, addItem } = props;
   const [value, setValue] = useState("test");
   const [editValue, setEditValue] = useState({
     name: "",
   });
 
-  const [list, setList] = useState([
-    {
-      id: 1,
-      name: "bruth tooth at 7am",
-    },
-  ]);
+  // const [test, setList] = useState([
+  //   {
+  //     id: 1,
+  //     name: "bruth tooth at 7am",
+  //   },
+  // ]);
 
-  const addItem = () =>
-    setList([
-      ...list,
-      {
-        id: Math.random(),
-        name: value,
-      },
-    ]);
+  // const addItem = () => {
+  //   // setList([
+  //   //   ...list,
+  //   //   {
+  //   //     id: Math.random(),
+  //   //     name: value,
+  //   //   },
+  //   // ]);
+  // };
+
   const removeItem = (id) => {
     const filteredList = list.filter((el) => el.id !== id);
-    setList(filteredList);
+    //setList(filteredList);
   };
 
   const updateItem = () => {
     const mappedList = list.map((item) => {
-      //   console.log(item);
-      //   console.log(editValue);
-
       if (item.id === editValue.id) {
         item.name = editValue.name;
       }
       return item;
     });
-    //console.log(mappedList);
-    setList(mappedList);
+    //setList(mappedList);
   };
 
-  const onEdit = (item) => {
-    setEditValue(item);
-    console.log(item);
-  };
   return (
     <div>
       Todo list
@@ -54,7 +50,7 @@ function Todo() {
           setValue(e.target.value);
         }}
       />
-      <button onClick={addItem}>add item</button>
+      <button onClick={() => addItem(value)}>add item</button>
       <input
         value={editValue.name}
         onChange={(e) => {
@@ -67,7 +63,7 @@ function Todo() {
         {list.map((item) => (
           <li key={item.id}>
             {item.name}
-            <button onClick={() => onEdit(item)}>Edit</button>
+            <button onClick={() => setEditValue(item)}>Edit</button>
             <button onClick={() => removeItem(item.id)}>X</button>
           </li>
         ))}
@@ -76,4 +72,20 @@ function Todo() {
   );
 }
 
-export default Todo;
+const mapStateToProps = (state) => {
+  return {
+    list: state.list,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addItem: (value) =>
+      dispatch({
+        type: "ADD_ITEM",
+        value: value,
+      }),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Todo);
